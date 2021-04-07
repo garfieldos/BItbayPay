@@ -8,9 +8,11 @@ namespace BitBayPayClient
         public static IServiceCollection AddBitBayPayClient(this IServiceCollection services,
             IConfiguration configuration)
         {
-            var bitBayConfiguration = configuration.GetSection("BitBayPay").Get<BitBayApiConfiguration>();
+            var bitBayConfiguration = configuration.GetSection("BitBayPay");
+            var privateKey = bitBayConfiguration[nameof(BitBayApiConfiguration.PrivateKey)];
+            var publicKey = bitBayConfiguration[nameof(BitBayApiConfiguration.PublicKey)];
             services.AddTransient<IBitBayPayService>(c =>
-                new BitBayPayService(bitBayConfiguration));
+                new BitBayPayService(new BitBayApiConfiguration(publicKey, privateKey)));
             return services;
         }
 

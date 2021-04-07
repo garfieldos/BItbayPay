@@ -4,8 +4,8 @@
     {
         public BitBayApiConfiguration()
         {
-            
         }
+
         public BitBayApiConfiguration(string publicKey, string privateKey)
         {
             PublicKey = publicKey;

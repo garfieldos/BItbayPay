@@ -9,7 +9,7 @@ namespace BitBayPayClient
     public class BitBayPayService : IBitBayPayService
     {
         private const string _apiBaseurl = "https://api.bitbaypay.com/rest/bitbaypay";
-        private BitBayApiConfiguration _bitBayApiConfiguration;
+        private readonly BitBayApiConfiguration _bitBayApiConfiguration;
 
         public BitBayPayService(BitBayApiConfiguration bitBayApiConfiguration)
         {

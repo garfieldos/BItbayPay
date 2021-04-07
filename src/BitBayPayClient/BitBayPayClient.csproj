@@ -3,13 +3,28 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
-        <packa
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>.Net client for BitBayPay</Description>
+        <Copyright>Szymon Gaertig</Copyright>
+        <PackageProjectUrl>https://github.com/szymongaertig/BItBayPay</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/szymongaertig/BItBayPay</RepositoryUrl>
+        <PackageTags>BitBayPay, BitBay</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Angeleo.Common.Domain" Version="1.20210217.1" />
-      <PackageReference Include="Angeleo.Services.Shared" Version="1.20210217.1" />
       <PackageReference Include="Flurl.Http" Version="3.0.1" />
+      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

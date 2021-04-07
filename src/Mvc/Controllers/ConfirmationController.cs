@@ -12,7 +12,7 @@ namespace Mvc.Controllers
         {
             // process response here
 
-            return this.Ok();
+            return Ok();
         }
     }
 }

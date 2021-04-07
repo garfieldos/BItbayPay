@@ -15,6 +15,8 @@ namespace Mvc.Pages
         private readonly IBitBayPayService _bitBayPayService;
         private readonly INGrokHostedService _proxy;
 
+        private readonly string BaseCurrency = "EUR";
+
         public Payments(IBitBayPayService bitBayPayService, INGrokHostedService proxy)
         {
             _bitBayPayService = bitBayPayService;
@@ -24,8 +26,6 @@ namespace Mvc.Pages
         public List<AvailableCurrency> AvailableCurrencies { get; set; }
         [BindProperty] public string? SelectedCurrency { get; set; }
         [BindProperty] public double SelectedValue { get; set; }
-
-        private string BaseCurrency = "EUR";
 
         public async Task OnGet()
         {
@@ -37,16 +37,13 @@ namespace Mvc.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             var orderId = Guid.NewGuid();
             var proxyUrl = (await _proxy.GetTunnelsAsync())
                 .First(x => x.Proto == "http")
                 .PublicUrl;
-            var payment = await _bitBayPayService.CreatePayment(BaseCurrency, this.SelectedValue, orderId,
+            var payment = await _bitBayPayService.CreatePayment(BaseCurrency, SelectedValue, orderId,
                 SelectedCurrency,
                 $"{proxyUrl}/success",
                 $"{proxyUrl}/failure",
