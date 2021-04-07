@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <PackageReference Include="FluffySpoon.AspNet.NGrok" Version="1.75.0" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\BitBayPayClient\BitBayPayClient.csproj" />
+    </ItemGroup>
+    
+</Project>

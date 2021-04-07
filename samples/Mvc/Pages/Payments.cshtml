@@ -1,0 +1,19 @@
+﻿@page
+@model Mvc.Pages.Payments
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<form method="post">
+    <p>Select a currency</p>
+    <select asp-for="SelectedCurrency"
+            asp-items="@(new SelectList(Model.AvailableCurrencies, "FirstCurrency", "FirstCurrency"))">
+        <option value="">Choose later</option>
+    </select>
+    <p>Select payment value</p>
+    <input type="number" asp-for="SelectedValue"/>
+    <div asp-validation-summary="All"></div>
+    <input type="submit" value="Pay"/>
+</form>
