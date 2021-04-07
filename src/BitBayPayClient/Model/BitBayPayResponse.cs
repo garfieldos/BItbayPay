@@ -1,8 +1,8 @@
 ﻿namespace BitBayPayClient.Model
 {
-    public class BitBayPayResponse<T>
+    public class BitBayPayResponse<T> where T : class
     {
-        public T Data { get; set; }
+        public T? Data { get; set; }
         public ResponseStatus Status { get; set; }
         public BitBayPayResponseError[] Errors { get; set; }
     }
@@ -27,7 +27,8 @@
         OPERATION_ALREADY_PERFORMED,
         WITHDRAWAL_AMOUNT_SMALLER_THAN_FEE,
         FETCHING_CURRENCIES_ERROR,
-        PAYMENT_DOES_NOT_EXIST
+        ACCESS_DENIED,
+        PAYMENT_DOES_NOT_EXIST,
     }
 
     public enum ResponseStatus
