@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <packa
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Angeleo.Common.Domain" Version="1.20210217.1" />
+      <PackageReference Include="Angeleo.Services.Shared" Version="1.20210217.1" />
+      <PackageReference Include="Flurl.Http" Version="3.0.1" />
+    </ItemGroup>
+
+</Project>
