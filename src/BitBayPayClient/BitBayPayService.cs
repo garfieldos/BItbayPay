@@ -35,7 +35,7 @@ namespace BitBayPayClient
         public async Task<BitBayPayResponse<CreatePaymentResponse>> CreatePayment(string destinationCurrency,
             double price,
             Guid orderId,
-            string sourceCurrency,
+            string? sourceCurrency,
             string successCallbackUrl,
             string failureCallbackUrl,
             string notificationsUrl,
