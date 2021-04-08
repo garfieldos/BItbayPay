@@ -38,5 +38,6 @@ jobs:
       with:
         PROJECT_FILE_PATH: src/BitBayPayClient/BitBayPayClient.csproj
         VERSION_FILE_PATH: 'packageVersion.txt'
+        VERSION_REGEX: '^s.*$'
         TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
