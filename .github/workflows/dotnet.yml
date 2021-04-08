@@ -30,11 +30,10 @@ jobs:
       env:
         FILE_NAME: 'packageVersion.txt'
         FILE_DATA: $VERSION
-    - name: Bash for GitHub Actions
-      uses: juliangruber/read-file-action@v1.0.0
-      with:
-        path: 'packageVersion.txt' 
+    - name: Show packageVersion
+      run: 'cat packageVersion.txt'
     - name: Publish to NuGet
+      id: VersionFileContent
       uses: brandedoutcast/publish-nuget@v2
       with:
         PROJECT_FILE_PATH: src/BitBayPayClient/BitBayPayClient.csproj
