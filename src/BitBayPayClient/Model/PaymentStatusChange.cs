@@ -9,7 +9,7 @@ namespace BitBayPayClient.Model
         public decimal AmountToPayInSourceCurrency { get; set; }
         public decimal AmountToPayInDestinationCurrency { get; set; }
         public PaymentStatus Status { get; set; }
-        public double? PaidAmount { get; set; }
+        public decimal? PaidAmount { get; set; }
         public decimal Price { get; set; }
     }
 
