@@ -1,4 +1,4 @@
-name: .NET
+name: Build BitBayPay library
 
 on:
   push:
@@ -23,6 +23,11 @@ jobs:
       run: dotnet build src --no-restore
     - name: Test
       run: dotnet test src --no-build --verbosity normal
+    - name: Git Version
+      uses: coday/git-version@2.4.0
+      with:
+        release-branch: master
+        prefix: "1.0.0"
     - name: Publish to NuGet
       uses: brandedoutcast/publish-nuget@v2
       with:
