@@ -30,10 +30,8 @@ jobs:
       env:
         FILE_NAME: 'packageVersion.txt'
         FILE_DATA: ${{ env.VERSION }}
-    - name: Show packageVersion
-      run: cat packageVersion.txt
-    - name: Show packageVersion
-      run: echo $VERSION
+    - name: show something
+      run: echo "version $VERSION, buildNumber $BUILD_NUMBER"
     - name: Publish to NuGet
       id: VersionFileContent
       uses: brandedoutcast/publish-nuget@v2
