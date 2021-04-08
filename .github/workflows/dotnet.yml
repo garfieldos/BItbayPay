@@ -31,9 +31,9 @@ jobs:
         FILE_NAME: 'packageVersion.txt'
         FILE_DATA: "$VERSION"
     - name: Show packageVersion
-      run: 'cat packageVersion.txt'
+      run: cat packageVersion.txt
     - name: Show packageVersion
-      run: 'cat $VERSION'
+      run: cat $VERSION
     - name: Publish to NuGet
       id: VersionFileContent
       uses: brandedoutcast/publish-nuget@v2
