@@ -29,6 +29,7 @@
         FETCHING_CURRENCIES_ERROR,
         ACCESS_DENIED,
         PAYMENT_DOES_NOT_EXIST,
+        INVALID_URL
     }
 
     public enum ResponseStatus
