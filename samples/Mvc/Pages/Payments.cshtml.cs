@@ -25,7 +25,7 @@ namespace Mvc.Pages
 
         public List<AvailableCurrency> AvailableCurrencies { get; set; }
         [BindProperty] public string? SelectedCurrency { get; set; }
-        [BindProperty] public double SelectedValue { get; set; }
+        [BindProperty] public decimal SelectedValue { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
@@ -39,7 +39,7 @@ namespace Mvc.Pages
             var eurRelatedCurrencies = availableCurrencies.Data.Where(x =>
                 x.SecondCurrency == BaseCurrency).ToList();
             AvailableCurrencies = eurRelatedCurrencies.ToList();
-            return new OkResult();
+            return Page();
         }
 
         public async Task<IActionResult> OnPost()
@@ -50,7 +50,7 @@ namespace Mvc.Pages
             var proxyUrl = (await _proxy.GetTunnelsAsync())
                 .First(x => x.Proto == "http")
                 .PublicUrl;
-            var payment = await _bitBayPayService.CreatePayment(BaseCurrency, SelectedValue, orderId,
+            var payment = await _bitBayPayService.CreatePayment("USD", SelectedValue, orderId,
                 SelectedCurrency,
                 $"{proxyUrl}/success",
                 $"{proxyUrl}/failure",
