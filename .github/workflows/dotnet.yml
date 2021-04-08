@@ -23,11 +23,8 @@ jobs:
       run: dotnet build src --no-restore
     - name: Test
       run: dotnet test src --no-build --verbosity normal
-    - name: Git Version
+    - name: Generate giv version
       uses: codacy/git-version@2.4.0
-      with:
-        release-branch: master
-        prefix: '1.'
     - name: Create version file
       uses: finnp/create-file-action@1.0.0
       env:
@@ -38,6 +35,6 @@ jobs:
       with:
         PROJECT_FILE_PATH: src/BitBayPayClient/BitBayPayClient.csproj
         VERSION_FILE_PATH: 'packageVersion.txt'
-        VERSION_REGEX: '^s.*$'
+        VERSION_REGEX: '.*'
         TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
