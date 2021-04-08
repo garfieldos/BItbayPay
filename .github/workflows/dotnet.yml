@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore src
     - name: Build
-      run: dotnet build src --no-restore
+      run: dotnet build src --no-restoreVERSION
     - name: Test
       run: dotnet test src --no-build --verbosity normal
     - name: Generate giv version
@@ -33,7 +33,7 @@ jobs:
     - name: Show packageVersion
       run: cat packageVersion.txt
     - name: Show packageVersion
-      run: cat $VERSION
+      run: echo $VERSION
     - name: Publish to NuGet
       id: VersionFileContent
       uses: brandedoutcast/publish-nuget@v2
