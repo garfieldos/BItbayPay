@@ -27,11 +27,16 @@ jobs:
       uses: codacy/git-version@2.4.0
       with:
         release-branch: master
-        prefix: "1.0.0"
+        prefix: '1.'
+    - name: Create version file
+      uses: finnp/create-file-action@1.0.0
+      env:
+        FILE_NAME: 'packageVersion.txt'
+        FILE_DATA: ${{VERSION}}
     - name: Publish to NuGet
       uses: brandedoutcast/publish-nuget@v2
       with:
         PROJECT_FILE_PATH: src/BitBayPayClient/BitBayPayClient.csproj
-        VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
+        VERSION_FILE_PATH: 'packageVersion.txt'
         TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
