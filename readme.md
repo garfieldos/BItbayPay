@@ -1,0 +1,1 @@
+[![Build BitBayPay library](https://github.com/szymongaertig/BItBayPay/actions/workflows/dotnet.yml/badge.svg)](https://github.com/szymongaertig/BItBayPay/actions/workflows/dotnet.yml)

@@ -21,7 +21,11 @@ namespace Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AddPageRoute("/Payments", "");
+                });
             services.AddBitBayPayClient(Configuration);
             services.AddNGrok();
         }
@@ -30,7 +34,6 @@ namespace Mvc
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-
             app.UseStaticFiles();
             app.UseRouting();
             app.UseNGrokAutomaticUrlDetection();
