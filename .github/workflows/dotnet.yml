@@ -29,9 +29,11 @@ jobs:
       uses: finnp/create-file-action@1.0.0
       env:
         FILE_NAME: 'packageVersion.txt'
-        FILE_DATA: ${{ $VERSION }}
+        FILE_DATA: "$VERSION"
     - name: Show packageVersion
       run: 'cat packageVersion.txt'
+    - name: Show packageVersion
+      run: 'cat $VERSION'
     - name: Publish to NuGet
       id: VersionFileContent
       uses: brandedoutcast/publish-nuget@v2
