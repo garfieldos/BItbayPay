@@ -33,7 +33,7 @@ namespace Mvc.Pages
             if (availableCurrencies.Status == ResponseStatus.Fail)
                 return RedirectToPage("Error", new
                 {
-                    ErrorMessage = availableCurrencies.Errors.Select(x => Enum.GetName(typeof(ErrorReason), x.Reason))
+                    ErrorMessage = availableCurrencies.Errors.Select(x => x.Reason)
                         .Aggregate((p, n) => $"{p},{n}")
                 });
             var eurRelatedCurrencies = availableCurrencies.Data.Where(x =>
@@ -47,9 +47,10 @@ namespace Mvc.Pages
             if (!ModelState.IsValid) return Page();
 
             var orderId = Guid.NewGuid();
-            var proxyUrl = (await _proxy.GetTunnelsAsync())
+            var proxyUrl = "http://costam.pl";
+            /*(await _proxy.GetTunnelsAsync())
                 .First(x => x.Proto == "http")
-                .PublicUrl;
+                .PublicUrl;*/
             var payment = await _bitBayPayService.CreatePayment("USD", SelectedValue, orderId,
                 SelectedCurrency,
                 $"{proxyUrl}/success",
@@ -60,7 +61,7 @@ namespace Mvc.Pages
             if (payment.Status != ResponseStatus.OK)
                 return RedirectToPage("Error", new
                 {
-                    ErrorMessage = payment.Errors.Select(x => Enum.GetName(typeof(ErrorReason), x.Reason))
+                    ErrorMessage = payment.Errors.Select(x => x.Reason)
                         .Aggregate((p, n) => $"{p},{n}")
                 });
             return Redirect(payment.Data.Url);
