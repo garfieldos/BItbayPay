@@ -29,7 +29,8 @@
         FETCHING_CURRENCIES_ERROR,
         ACCESS_DENIED,
         PAYMENT_DOES_NOT_EXIST,
-        INVALID_URL
+        INVALID_URL,
+        DECIMAL_VALUE_TOO_BIG
     }
 
     public enum ResponseStatus
