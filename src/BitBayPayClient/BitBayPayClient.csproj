@@ -10,7 +10,7 @@
         <RepositoryUrl>https://github.com/szymongaertig/BItBayPay</RepositoryUrl>
         <PackageTags>BitBayPay, BitBay</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
     </PropertyGroup>
 
     <ItemGroup>
